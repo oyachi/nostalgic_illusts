@@ -4,6 +4,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 /* screens */
 import 'home_screen.dart';
 import 'post_screen.dart';
+import 'detail_screen.dart';
 
 enum TabType { home, add }
 final tabTypeProvider = StateProvider<TabType>((ref) => TabType.home);
@@ -20,6 +21,7 @@ class Template extends HookWidget {
     ];
 
     return Scaffold(
+        backgroundColor: Color(0xFFF5F6F9),
         appBar: AppBar(
           title: Text('Nostalgic Illusts'),
         ),
