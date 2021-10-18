@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+/* components */
+import '../components/illust_preview.dart';
+import '../components/illust_description.dart';
 
 class DetailScreen extends StatelessWidget {
   @override
@@ -20,7 +23,8 @@ class DetailScreen extends StatelessWidget {
       ),
       body: Column(
         children: [
-          Image.asset("assets/images/macbook1.jpg"),
+          IllustPreviwe(),
+          IllustDescription(),
         ],
       )
     );
