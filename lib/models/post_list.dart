@@ -9,8 +9,8 @@ final StateNotifierProvider<PostList, dynamic> postListProvider =
 class PostList extends StateNotifier<List<Post>> {
   PostList(List<Post> initialPost) : super(initialPost ?? []);
 
-  void addPost(String title) {
-    state = [...state, Post(title: title)];
+  void addPost(String title, String description, String reflection) {
+    state = [...state, Post(title: title, description: description, reflection: reflection)];
   }
 
   void deletePost(Post target) {

@@ -54,7 +54,7 @@ class PostScreen extends StatelessWidget {
                 width: double.infinity,
                 child: ElevatedButton(
                   onPressed: () => {
-                    context.read(postListProvider.notifier).addPost(_title),
+                    context.read(postListProvider.notifier).addPost(_title, _description, _reflection),
                     Navigator.pop(context)
                   },
                   child: Text('Add', style: TextStyle(color: Colors.white)),
