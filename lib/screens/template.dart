@@ -4,10 +4,14 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 /* screens */
 import 'home_screen.dart';
 import 'post_screen.dart';
-import 'detail_screen.dart';
+import 'plan_screen.dart';
+/*models*/
+import '../models/post.dart';
 
-enum TabType { home, add }
+enum TabType { home, plan }
 final tabTypeProvider = StateProvider<TabType>((ref) => TabType.home);
+/*postがあったときのProvider*/
+final postProvider = StateProvider<Post>((ref) => Post());
 
 class Template extends HookWidget {
   const Template({Key? key}) : super(key: key);
@@ -17,7 +21,7 @@ class Template extends HookWidget {
     final tabType = useProvider(tabTypeProvider);
     final _screens = [
       HomeScreen(),
-      PostScreen()
+      PlanScreen()
     ];
 
     return Scaffold(
@@ -26,6 +30,19 @@ class Template extends HookWidget {
           title: Text('Nostalgic Illusts'),
         ),
         body: _screens[tabType.state.index],
+        floatingActionButtonLocation:  FloatingActionButtonLocation.centerDocked,
+          floatingActionButton: FloatingActionButton(
+            onPressed: () => {
+              Navigator.of(context).push(
+                MaterialPageRoute(builder: (context) => PostScreen()),
+              ),
+            },
+            backgroundColor: Colors.white,
+            child: Icon(
+                Icons.add,
+                color: Colors.grey,
+              ),
+          ),
         bottomNavigationBar: BottomNavigationBar(
           currentIndex: tabType.state.index,
           onTap: (int selectIndex) {
@@ -39,9 +56,9 @@ class Template extends HookWidget {
                 label: "home",
             ),
             BottomNavigationBarItem(
-                icon: Icon(Icons.add_photo_alternate_rounded),
-                label: "add"
-            )
+                icon: Icon(Icons.next_plan),
+                label: "plan"
+            ),
           ],
         ),
     );
