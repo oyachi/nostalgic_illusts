@@ -1,4 +1,5 @@
 import 'package:uuid/uuid.dart';
+import 'dart:io';
 
 var _uuid = Uuid();
 
@@ -7,6 +8,7 @@ class Post {
     this.title,
     this.description,
     this.reflection,
+    this.image,
     String? id,
     }) : id = id ?? _uuid.v4();
 
@@ -14,4 +16,5 @@ class Post {
   final String? title;
   final String? description;
   final String? reflection;
+  final File? image;
 }

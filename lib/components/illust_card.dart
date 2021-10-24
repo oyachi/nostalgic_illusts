@@ -28,7 +28,7 @@ class IllustCard extends StatelessWidget {
                       title: Text(post.title!),
                       subtitle: Text(post.description!),
                     ),
-                    Image.asset("assets/images/macbook1.jpg")
+                    Image.file(post.image!)
                   ],
                ),
           ),

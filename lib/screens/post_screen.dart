@@ -20,7 +20,6 @@ class PostScreen extends StatelessWidget {
     final _form = GlobalKey<FormState>();
 
     return Scaffold(
-      resizeToAvoidBottomInset: false,
       backgroundColor: Color(0xFFF5F6F9),
       appBar: AppBar(
         backgroundColor: Color(0xFFF5F6F9),
@@ -149,7 +148,7 @@ class PostScreen extends StatelessWidget {
                           onPressed: () => {
                             if(_form.currentState!.validate()) {
                               _form.currentState!.save(),
-                              context.read(postListProvider.notifier).addPost(_title, _description, _reflection),
+                              context.read(postListProvider.notifier).addPost(_title, _description, _reflection, image!),
                               Navigator.pop(context)
                             },
 
