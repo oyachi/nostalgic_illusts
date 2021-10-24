@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'dart:io';
 /* screens */
 import 'home_screen.dart';
 import 'post_screen.dart';
 import 'plan_screen.dart';
-/*models*/
+/* models */
 import '../models/post.dart';
+/* helper */
+import '../helper/image_picker.dart';
 
 enum TabType { home, plan }
 final tabTypeProvider = StateProvider<TabType>((ref) => TabType.home);
@@ -32,10 +35,13 @@ class Template extends HookWidget {
         body: _screens[tabType.state.index],
         floatingActionButtonLocation:  FloatingActionButtonLocation.centerDocked,
           floatingActionButton: FloatingActionButton(
-            onPressed: () => {
-              Navigator.of(context).push(
-                MaterialPageRoute(builder: (context) => PostScreen()),
-              ),
+            onPressed: () async {
+              final File? image = await getImageFromGallery();
+              if (image != null) {
+                Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context) => PostScreen(image)),
+                );
+              }
             },
             backgroundColor: Colors.white,
             child: Icon(
@@ -53,11 +59,11 @@ class Template extends HookWidget {
           items: [
             BottomNavigationBarItem(
                 icon: Icon(Icons.home),
-                label: "home",
+                label: "Home",
             ),
             BottomNavigationBarItem(
                 icon: Icon(Icons.next_plan),
-                label: "plan"
+                label: "Plan"
             ),
           ],
         ),
