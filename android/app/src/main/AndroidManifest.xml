@@ -2,7 +2,8 @@
     package="com.example.oyachi.nostalgic_illusts">
    <application
         android:label="nostalgic_illusts"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@mipmap/ic_launcher"
+        android:requestLegacyExternalStorage="true">
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"
