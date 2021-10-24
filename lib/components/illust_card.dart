@@ -17,19 +17,22 @@ class IllustCard extends StatelessWidget {
             onTap: () {
               openContainer();
             },
-            child: Card(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  ListTile(
-                    leading: Icon(Icons.album),
-                    title: Text(post.title.toString()),
-                    subtitle: Text(post.description.toString()),
-                  ),
-                  Image.asset("assets/images/macbook1.jpg")
-                ],
-             ),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(vertical: 8.0),
+              child: Card(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    ListTile(
+                      leading: Icon(Icons.insert_photo),
+                      title: Text(post.title!),
+                      subtitle: Text(post.description!),
+                    ),
+                    Image.asset("assets/images/macbook1.jpg")
+                  ],
+               ),
           ),
+            ),
         ),
     );
   }
