@@ -11,7 +11,7 @@ class IllustCard extends StatelessWidget {
   IllustCard(this.post);
   Widget build(BuildContext context) {
     return OpenContainer(
-      openBuilder:(context,_)=>DetailScreen(),
+      openBuilder:(context,_)=>DetailScreen(post),
       closedBuilder:
           (context,openContainer)=> GestureDetector(
             onTap: () {
@@ -24,10 +24,9 @@ class IllustCard extends StatelessWidget {
                   ListTile(
                     leading: Icon(Icons.insert_photo),
                     title: Text(post.title!),
-                    subtitle: Text(post.description!),
                   ),
                   Padding(
-                    padding: const EdgeInsets.all(20.0),
+                    padding: const EdgeInsets.only(bottom: 20.0, left: 20.0, right: 20.0),
                     child: Image.file(post.image!),
                   ),
                 ],
