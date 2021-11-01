@@ -16,9 +16,10 @@ class DetailBottomButtons extends StatelessWidget {
               child: Container(
                 child: Padding(
                   padding: const EdgeInsets.all(0.0),
-                  child: ElevatedButton(
+                  child: ElevatedButton.icon(
                     onPressed: () => {},
-                    child: Text('Edit', style: TextStyle(color: Colors.white)),
+                    label: Text('Edit', style: TextStyle(color: Colors.white)),
+                    icon: Icon(Icons.edit),
                   ),
                 ),
               ),
@@ -29,16 +30,17 @@ class DetailBottomButtons extends StatelessWidget {
               child: Container(
                 child: Padding(
                   padding: const EdgeInsets.all(0.0),
-                  child: OutlinedButton(
+                  child: OutlinedButton.icon(
                     style: OutlinedButton.styleFrom(
                       side: BorderSide(color: Theme
                           .of(context)
                           .primaryColor),
                     ),
                     onPressed: () => _showDialog(context),
-                    child: Text('Delete', style: TextStyle(color: Theme
+                    label: Text('Delete', style: TextStyle(color: Theme
                         .of(context)
                         .primaryColor)),
+                    icon: Icon(Icons.delete),
                   ),
                 ),
               ),
