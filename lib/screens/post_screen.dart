@@ -114,7 +114,7 @@ class PostScreen extends StatelessWidget {
                                   textInputAction: TextInputAction.next,
                                   focusNode: _reflectionFocusNode,
                                   onSaved: (value) {
-                                    _description = value!;
+                                    _reflection = value!;
                                   },
                                   decoration: InputDecoration(
                                     labelText: 'Reflection',
@@ -141,20 +141,18 @@ class PostScreen extends StatelessWidget {
                       ),
                     const SizedBox(height: 8),
                     Container(
-                      width: double.infinity,
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: ElevatedButton(
-                          onPressed: () => {
-                            if(_form.currentState!.validate()) {
-                              _form.currentState!.save(),
-                              context.read(postListProvider.notifier).addPost(_title, _description, _reflection, image!),
-                              Navigator.pop(context)
-                            },
-
+                      padding: EdgeInsets.all(20.0),
+                      child: ElevatedButton.icon(
+                        onPressed: () => {
+                          if(_form.currentState!.validate()) {
+                            _form.currentState!.save(),
+                            context.read(postListProvider.notifier).addPost(_title, _description, _reflection, image!),
+                            Navigator.pop(context)
                           },
-                          child: Text('Add', style: TextStyle(color: Colors.white)),
-                        ),
+
+                        },
+                        label: Text('Add', style: TextStyle(color: Colors.white)),
+                        icon: Icon(Icons.add),
                       ),
                     ),
                   ],
