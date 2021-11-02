@@ -38,7 +38,7 @@ class DetailScreen extends StatelessWidget {
                     IllustPreviwe(post.image!),
                     IllustDescription(post.title!, post.description!, post.reflection!),
                     Expanded(child: Container(color: Colors.white,)),
-                    DetailBottomButtons(),
+                    DetailBottomButtons(post),
                   ],
                 ),
               ),

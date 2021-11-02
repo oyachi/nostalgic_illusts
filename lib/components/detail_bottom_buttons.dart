@@ -1,6 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
+/* screens */
+import '../screens/edit_screen.dart';
+/* models */
+import '../models/post_list.dart';
+import '../models/post.dart';
 
 class DetailBottomButtons extends StatelessWidget {
+  Post post;
+  DetailBottomButtons(this.post);
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -17,7 +26,11 @@ class DetailBottomButtons extends StatelessWidget {
                 child: Padding(
                   padding: const EdgeInsets.all(0.0),
                   child: ElevatedButton.icon(
-                    onPressed: () => {},
+                    onPressed: () async {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(builder: (context) => EditScreen(post)),
+                      );
+                    },
                     label: Text('Edit', style: TextStyle(color: Colors.white)),
                     icon: Icon(Icons.edit),
                   ),
@@ -66,6 +79,7 @@ class DetailBottomButtons extends StatelessWidget {
                 onPressed: () => {
                   Navigator.pop(context),
                   Navigator.pop(context),
+                  context.read(postListProvider.notifier).deletePost(post),
                 },
                 child: const Text("OK"),
               ),

@@ -17,4 +17,14 @@ class PostList extends StateNotifier<List<Post>> {
   void deletePost(Post target) {
     state = state.where((task) => task.id != target.id).toList();
   }
+
+  void editPost(String title, String description, String reflection, Post target) {
+    var targetIndex = state.indexWhere((task) {
+      return task.id == target.id;
+    });
+    state[targetIndex].title = title;
+    state[targetIndex].description = description;
+    state[targetIndex].reflection = reflection;
+  }
 }
+
