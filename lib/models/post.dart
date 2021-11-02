@@ -13,8 +13,8 @@ class Post {
     }) : id = id ?? _uuid.v4();
 
   final String? id;
-  final String? title;
-  final String? description;
-  final String? reflection;
+  String? title;
+  String? description;
+  String? reflection;
   final File? image;
 }
