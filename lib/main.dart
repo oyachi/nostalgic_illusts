@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'screens/template.dart';
+/* configs */
+import './configs/contains.dart';
 
 void main() {
   runApp(
@@ -17,7 +19,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Nostalgic Illusts',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        //primarySwatch: Colors.blue,
+        primaryColor: kPrimaryColor,
+        accentColor: kAccentColor,
       ),
       debugShowCheckedModeBanner: false,
       home: Template(),

@@ -25,13 +25,16 @@ class IllustDescription extends StatelessWidget {
                     padding: const EdgeInsets.only(top: 20.0),
                     child: Align(
                       alignment: Alignment.center,
-                      child: Container(
-                        padding: EdgeInsets.symmetric(vertical: 8.0),
-                        width: 150,
-                        height: 7,
-                        decoration: BoxDecoration(
-                          color: Colors.red[50],
-                          borderRadius: BorderRadius.circular(10),
+                      child: Opacity(
+                        opacity: 0.3,
+                        child: Container(
+                          padding: EdgeInsets.symmetric(vertical: 8.0),
+                          width: 150,
+                          height: 7,
+                          decoration: BoxDecoration(
+                            color: Theme.of(context).accentColor,
+                            borderRadius: BorderRadius.circular(10),
+                          ),
                         ),
                       ),
                     ),

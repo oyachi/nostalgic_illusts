@@ -26,6 +26,9 @@ class DetailBottomButtons extends StatelessWidget {
                 child: Padding(
                   padding: const EdgeInsets.all(0.0),
                   child: ElevatedButton.icon(
+                    style: ElevatedButton.styleFrom(
+                      primary: Theme.of(context).primaryColor,
+                    ),
                     onPressed: () async {
                       Navigator.of(context).push(
                         MaterialPageRoute(builder: (context) => EditScreen(post)),
@@ -53,7 +56,10 @@ class DetailBottomButtons extends StatelessWidget {
                     label: Text('Delete', style: TextStyle(color: Theme
                         .of(context)
                         .primaryColor)),
-                    icon: Icon(Icons.delete),
+                    icon: Icon(
+                        Icons.delete,
+                        color: Theme.of(context).primaryColor,
+                    ),
                   ),
                 ),
               ),

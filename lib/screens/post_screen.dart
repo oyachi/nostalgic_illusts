@@ -142,6 +142,9 @@ class PostScreen extends StatelessWidget {
                   Container(
                     padding: EdgeInsets.all(20.0),
                     child: ElevatedButton.icon(
+                      style: ElevatedButton.styleFrom(
+                        primary: Theme.of(context).primaryColor,
+                      ),
                       onPressed: () => {
                         if(_form.currentState!.validate()) {
                           _form.currentState!.save(),
